@@ -26,8 +26,65 @@
   padding: 0 10rem;
 }
 
+
+.section{
+  &__button{
+
+  }
+}
+.header{
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 4;
+  &__sticky{
+    position: sticky;
+  }
+  &__menu{
+    display: flex;
+  }
+  &__block{
+    display: flex;
+  }
+  &__logo{
+    width: 18.1rem;
+    height: 7.5rem;
+  }
+}
+
+
 .banner{
+  color:var(--color-white);
   .container{
     padding: 17.5rem 10rem 17.1rem;
+  }
+  &__img{
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+  }
+  &__subtitle{
+    letter-spacing: -0.016rem;
+    font: 500 1.6rem/140% var(--Roboto);
+    margin-bottom: 0.8rem;
+  }
+  &__title{
+    letter-spacing: -0.044rem;;
+    font: 800 4.4rem/140% var(--Montserrat);
+    margin-bottom: 1.5rem;
+  }
+  &__price{
+    font: 600 3.2rem/140% var(--Montserrat);
+    letter-spacing: -0.032rem;
+    display: flex;
+    align-items: center;
+    mark{
+      color:var(--color-white);
+      font: 400 1.6rem/140% var(--Montserrat);
+      margin-right: 1rem;
+      opacity: 0.8;
+    }
   }
 }
