@@ -1,0 +1,33 @@
+.wrap {
+  font-family: var(--Montserrat);
+  max-width: 100vw;
+  min-height: 100vh;
+  width: 100%;
+  color: var(--color-black);
+  position: relative;
+  background-color: var(--color-back-light);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.wrap__main{
+  overflow: hidden;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: 144rem;
+  margin: 0 auto;
+  padding: 0 10rem;
+}
+
+.banner{
+  .container{
+    padding: 17.5rem 10rem 17.1rem;
+  }
+}

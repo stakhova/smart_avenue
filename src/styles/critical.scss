@@ -1,0 +1,136 @@
+/*fonts*/
+@mixin font-face($style-name, $file:$style-name, $weight:normal, $style:normal) {
+    $filepath: "/fonts/" + $file;
+    @font-face {
+        font-family: quote($style-name);
+        src: url($filepath + ".eot");
+        src: url($filepath + ".eot?#iefix") format('embedded-opentype'),
+        url($filepath + ".woff") format('woff'),
+        url($filepath + ".ttf")  format('truetype'),
+        url($filepath + ".svg#" + $style-name + "") format('svg');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url("/fonts/Montserrat-ExtraBold.eot");
+    src: url("/fonts/Montserrat-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Montserrat-ExtraBold.woff") format("woff"), url("/fonts/Montserrat-ExtraBold.ttf") format("truetype"), url("/fonts/Montserrat-Bold.svg#Montserrat") format("svg");
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Roboto";
+    src: url("/fonts/Roboto-Regular.eot");
+    src: url("/fonts/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto-Regular.woff") format("woff"), url("/fonts/Roboto-Regular.ttf") format("truetype"), url("/fonts/Roboto-Regular.svg") format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("/fonts/Roboto-Medium.eot");
+    src: url("/fonts/Roboto-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto-Medium.woff") format("woff"), url("/fonts/Roboto-Medium.ttf") format("truetype"), url("/fonts/Roboto-Medium.svg") format("svg");
+    font-weight: 500;
+    font-style: normal;
+}
+
+:root {
+    --color-white: #fff;
+    --color-black: #212121;
+    --Montserrat: 'Montserrat', sans-serif;
+    --Moul: 'Roboto', sans-serif;
+}
+
+*, *:before,
+*:after {
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+*, body, html {
+    -webkit-text-size-adjust: none;
+    -webkit-appearance: none;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: none;
+}
+
+mark {
+    -webkit-text-fill-color: initial;
+    text-fill-color: transparent;
+    background: none;
+}
+
+.img.contain img {
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+.img > img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+button {
+    background: transparent;
+}
+
+h1 {
+    margin: 0;
+}
+
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+@media only screen and (max-width: 1280px) {
+    html {
+        font-size: 8.89px;
+    }
+}
+
+
+@media only screen and (max-width: 1024px) {
+    html {
+        font-size: 7.11px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    html {
+        font-size: 5.33px;
+    }
+}
+
+@media only screen and (max-width: 666px) {
+    html {
+        font-size: 10px;
+    }
+}
