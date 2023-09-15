@@ -5,8 +5,8 @@ const banner = new Swiper('.banner__slider', {
 
     loop: true,
     navigation: {
-        nextEl: ".main__next",
-        prevEl: ".main__prev"
+        nextEl: ".banner__next",
+        prevEl: ".banner__prev"
     }
 
 });

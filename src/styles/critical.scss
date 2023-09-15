@@ -17,7 +17,7 @@
     font-family: "Montserrat";
     src: url("/fonts/Montserrat-ExtraBold.eot");
     src: url("/fonts/Montserrat-ExtraBold.eot?#iefix") format("embedded-opentype"), url("../fonts/Montserrat-ExtraBold.woff") format("woff"), url("/fonts/Montserrat-ExtraBold.ttf") format("truetype"), url("/fonts/Montserrat-Bold.svg#Montserrat") format("svg");
-    font-weight: 700;
+    font-weight: 800;
     font-style: normal;
 }
 @font-face {
@@ -38,9 +38,11 @@
 
 :root {
     --color-white: #fff;
-    --color-black: #212121;
+    --color-black: #000;
+    --color-text: #333;
+    --color-primary: #F03E3E;
     --Montserrat: 'Montserrat', sans-serif;
-    --Moul: 'Roboto', sans-serif;
+    --Roboto: 'Roboto', sans-serif;
 }
 
 *, *:before,
