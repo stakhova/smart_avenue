@@ -28,9 +28,9 @@ $(window).scroll(function () {
 
     let scrolled = $(window).scrollTop();
     if(scrolled>0){
-        $('.header').addClass('header__sticky')
+        $('.header').addClass('header__fixed')
     }else{
-        $('.header').removeClass('header__sticky')
+        $('.header').removeClass('header__fixed')
     }
 
 });
