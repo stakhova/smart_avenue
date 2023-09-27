@@ -28,6 +28,10 @@
 
 
 .section{
+  &__title{
+    font: 800 3.4rem/140% var(--Montserrat);
+    letter-spacing: -0.034rem;
+  }
   &__button{
     background-color: var(--color-primary);
     padding: 1.8rem 2.2rem;
@@ -47,6 +51,39 @@
       height: 2.4rem;
       background: url("../img/Arrow - Right.svg") center/2.4rem 2.4rem no-repeat;
 
+    }
+  }
+  &__nav{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+    gap:0;
+    & > *{
+      position: relative;
+      top:unset;
+      left: unset;
+      right: unset;
+      margin: 0;
+      width: 50%;
+      height: 100%;
+      background: var(--color-white-opacity);
+      &:after{
+        content:'' ;
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(-50%,-50%);
+        width: 3.2rem;
+        height: 3.2rem;
+        background: url("../img/Right.svg") center/3.2rem 3.2rem no-repeat;
+        z-index: 2;
+      }
+    }
+    .swiper-button-prev{
+      &:after{
+        transform: translate(-50%,-50%) rotate(-180deg);
+      }
     }
   }
 }
@@ -199,9 +236,6 @@
     }
   }
   &__nav{
-    display: flex;
-    justify-content: center;
-    position: absolute;
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
@@ -209,33 +243,6 @@
     gap:0;
     width: 16.2rem;
     height: 9rem;
-    & > *{
-      position: relative;
-      top:unset;
-      left: unset;
-      right: unset;
-      margin: 0;
-      width: 50%;
-      height: 100%;
-
-      background: var(--color-white-opacity);
-      &:after{
-        content:'' ;
-        position: absolute;
-        top: 50%;
-        right: 50%;
-        transform: translate(-50%,-50%);
-        width: 3.2rem;
-        height: 3.2rem;
-        background: url("../img/Right.svg") center/3.2rem 3.2rem no-repeat;
-        z-index: 2;
-      }
-    }
-    .banner__prev{
-      &:after{
-        transform: translate(-50%,-50%) rotate(-180deg);
-      }
-    }
   }
   &__social{
     display: flex;
@@ -299,6 +306,27 @@
     }
   }
 }
+
+.gallery{
+  .container{
+    padding: 4.4rem 10rem 0;
+    position: relative;
+  }
+  .section__title{
+    margin-bottom: 4rem;
+  }
+  &__nav{
+    right: 10rem;
+    bottom: 0;
+    z-index: 2;
+    gap:0;
+    width: 14.4rem;
+    height: 7.4rem;
+  }
+}
+
+
+
 
 
 @media only screen and (max-width: 1380px) {

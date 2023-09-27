@@ -11,6 +11,16 @@ const banner = new Swiper('.banner__slider', {
 
 });
 
+const gallery = new Swiper('.gallery__slider', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    centeredSlides: true,
+    loop: true,
+    navigation: {
+        nextEl: ".gallery__next",
+        prevEl: ".gallery__prev"
+    }
+});
 
 $(document).ready(function(){
 

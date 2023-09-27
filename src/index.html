@@ -3,7 +3,7 @@
 <div class="wrap">
     //= partials/header.html
 
-    <div class="wrap__main">
+    <main class="wrap__main">
         <section class="banner">
                 <div class="swiper-container banner__slider">
                     <div class="swiper-wrapper">
@@ -66,7 +66,7 @@
                 </div>
             <div class="banner__elements">
                 <div class="container">
-                    <div class="banner__nav">
+                    <div class="section__nav banner__nav">
                         <div class="swiper-button-prev banner__prev"></div>
                         <div class="swiper-button-next banner__next"></div>
                     </div>
@@ -104,7 +104,38 @@
             </div>
 
         </section>
-    </div>
+        <section class="gallery">
+            <div class="container">
+                <h2 class="section__title">
+                    Галерея житлового комплексу Dream House
+                </h2>
+                <div class="section__nav gallery__nav">
+                    <div class="swiper-button-prev gallery__prev"></div>
+                    <div class="swiper-button-next gallery__next"></div>
+                </div>
+                <div class="swiper-container gallery__slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide gallery__slide ">
+                            <div class="gallery__img img">
+                                <img src="img/gallery.png" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-slide gallery__slide ">
+                            <div class="gallery__img img">
+                                <img src="img/gallery.png" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-slide gallery__slide ">
+                            <div class="gallery__img img">
+                                <img src="img/gallery.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
 
     //= partials/footer.html
 </div>
