@@ -36,8 +36,16 @@
     background-color: var(--color-primary);
     padding: 1.8rem 2.2rem;
     font: 800 1.4rem/140% var(--Montserrat);
+    letter-spacing: -0.014rem;
     position: relative;
     display: inline-block;
+    color:var(--color-white);
+    transition: 0.2s all ease;
+    &:hover{
+      transition: 0.2s all ease;
+      box-shadow: 0 0 1rem 0 var(--color-primary);
+    }
+
   }
   &__link{
     padding-right: 6.1rem;
@@ -72,7 +80,7 @@
         content:'' ;
         position: absolute;
         top: 50%;
-        right: 50%;
+        left: 50%;
         transform: translate(-50%,-50%);
         width: 3.2rem;
         height: 3.2rem;
@@ -88,6 +96,7 @@
   }
 }
 
+
 .header{
   color: white;
   position: fixed;
@@ -102,10 +111,10 @@
       color:var(--color-menu);
     }
     .header__info-item > h3{
-      color: #000;
+      color: var(--color-black);
     }
     .header__info-icon > *{
-      color: #000;
+      color:  var(--color-black);
     }
   }
   &__mob{
@@ -256,9 +265,11 @@
     &-img {
       width: 2.4rem;
       height: 2.4rem;
+      transition: 0.2s all ease;
       &:hover{
-        width: 2.4rem;
-        height: 2.4rem;
+        transition: 0.2s all ease;
+        opacity: 1;
+        filter: invert(32%) sepia(56%) saturate(5352%) hue-rotate(343deg) brightness(106%) contrast(88%);
       }
       &:last-child{
         width: 2.74rem;
@@ -307,6 +318,93 @@
   }
 }
 
+
+.preference{
+  .container{
+    padding: 22.2rem 0 9rem;
+    overflow: hidden;
+  }
+  &__slide{
+    display: flex;
+    align-items: flex-end;
+  }
+  &__img{
+    height:67rem ;
+    width: 65.8%;
+  }
+  &__desc{
+    position: relative;
+    max-width: 47rem;
+    background-color: var(--color-white);
+    padding: 6rem 0 11.3rem 7rem;
+    margin-left: -5rem;
+  }
+  &__timer{
+    margin-bottom: 3.7rem;
+  }
+  &__title{
+    font: 800 2.8rem/140% var(--Montserrat);
+    letter-spacing: -0.028rem;
+    margin-bottom: 2.9rem;
+  }
+  &__text{
+    font: 400 1.6rem/180% var(--Roboto);
+    margin-bottom: 3.5rem;
+    color:var(--color-text);
+    -webkit-line-clamp: 4;
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+  &__nav{
+    width: 14.4rem;
+    height: 7.4rem;
+    bottom: 0;
+    left: -14.4rem;
+    & > *{
+      background: var(--color-black-opacity);
+      transition: 0.2s all ease;
+      &:hover{
+        transition: 0.2s all ease;
+        background: var(--color-primary);
+      }
+    }
+  }
+  &__timer{
+    @keyframes circletimer{
+    0%{
+      stroke-dashoffset: 500;
+      stroke-dasharray: 500
+    }
+    100%{
+      stroke-dashoffset: 0;
+      stroke-dasharray: 500;
+    }
+
+    }
+
+
+  svg{
+      background-color: transparent;
+      position: relative;
+      background-color: transparent;
+      width: 7.2rem;
+      height: 7.2rem;
+
+    }
+
+    .circle{
+      stroke: var(--color-primary);
+      stroke-width: 4;
+      fill: transparent;
+      stroke-dashoffset: 500;
+      stroke-dasharray: 0;
+      animation: 5s circletimer linear;
+    }
+
+  }
+}
 .gallery{
   .container{
     padding: 4.4rem 10rem 0;

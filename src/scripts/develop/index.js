@@ -3,10 +3,29 @@ const banner = new Swiper('.banner__slider', {
     spaceBetween: 0,
     centeredSlides: false,
 
+
     loop: true,
     navigation: {
         nextEl: ".banner__next",
         prevEl: ".banner__prev"
+    }
+
+});
+
+const preference = new Swiper('.preference__slider', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    centeredSlides: false,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+
+
+    loop: true,
+    navigation: {
+        nextEl: ".preference__next",
+        prevEl: ".preference__prev"
     }
 
 });
