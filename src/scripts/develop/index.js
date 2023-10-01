@@ -30,6 +30,21 @@ const preference = new Swiper('.preference__slider', {
 
 });
 
+
+const building = new Swiper('.building__slider', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    centeredSlides: false,
+    loop: true,
+    navigation: {
+        nextEl: ".building__next",
+        prevEl: ".building__prev"
+    }
+
+});
+
+
+
 const gallery = new Swiper('.gallery__slider', {
     slidesPerView: 1,
     spaceBetween: 20,
@@ -42,7 +57,7 @@ const gallery = new Swiper('.gallery__slider', {
 });
 
 $(document).ready(function(){
-
+    $('#header__select').select2()
 });
 
 $(window).load(function(){
