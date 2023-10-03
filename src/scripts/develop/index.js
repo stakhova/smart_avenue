@@ -12,23 +12,55 @@ const banner = new Swiper('.banner__slider', {
 
 });
 
-const preference = new Swiper('.preference__slider', {
+var swiper = new Swiper('.preference__slider', {
     slidesPerView: 1,
     spaceBetween: 0,
     centeredSlides: false,
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-    },
+    // autoplay: {
+    //     delay: 4000,
+    //     disableOnInteraction: false,
+    // },
 
 
     loop: true,
     navigation: {
         nextEl: ".preference__next",
         prevEl: ".preference__prev"
-    }
+    },
+    on: {
+        slideChange: function() {
+            // updateCounter(this.realIndex + 1, swiper.slides.length);
+            startTimer();
+        },
+    },
 
 });
+
+
+
+function updateCounter(currentSlide, totalSlides) {
+    $('.counter').text( currentSlide + '/' + totalSlides);
+}
+
+var timerInterval;
+
+function startTimer() {
+    clearInterval(timerInterval);
+    var seconds = 4; // Set the timer duration (in seconds)
+    var timerElement = $('.timer');
+
+    var updateTimer = function() {
+        if (seconds === 0) {
+            swiper.slideNext();
+            seconds = 5;
+        }
+        timerElement.text(seconds);
+        seconds--;
+    };
+
+    updateTimer();
+    timerInterval = setInterval(updateTimer, 1000);
+}
 
 
 const building = new Swiper('.building__slider', {
@@ -58,6 +90,9 @@ const gallery = new Swiper('.gallery__slider', {
 
 $(document).ready(function(){
     $('#header__select').select2()
+
+    updateCounter(1, swiper.slides.length);
+    startTimer();
 });
 
 $(window).load(function(){
