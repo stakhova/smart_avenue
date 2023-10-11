@@ -12,16 +12,10 @@ const banner = new Swiper('.banner__slider', {
 
 });
 
-var swiper = new Swiper('.preference__slider', {
+let preference = new Swiper('.preference__slider', {
     slidesPerView: 1,
     spaceBetween: 0,
     centeredSlides: false,
-    // autoplay: {
-    //     delay: 4000,
-    //     disableOnInteraction: false,
-    // },
-
-
     loop: true,
     navigation: {
         nextEl: ".preference__next",
@@ -42,17 +36,19 @@ function updateCounter(currentSlide, totalSlides) {
     $('.counter').text( currentSlide + '/' + totalSlides);
 }
 
+
+
 var timerInterval;
 
 function startTimer() {
     clearInterval(timerInterval);
-    var seconds = 4; // Set the timer duration (in seconds)
-    var timerElement = $('.timer');
+    let seconds = 4; // Set the timer duration (in seconds)
+    let timerElement = $('.timer');
 
-    var updateTimer = function() {
+    let updateTimer = function() {
         if (seconds === 0) {
-            swiper.slideNext();
-            seconds = 5;
+            preference.slideNext();
+            seconds = 4;
         }
         timerElement.text(seconds);
         seconds--;
@@ -60,6 +56,14 @@ function startTimer() {
 
     updateTimer();
     timerInterval = setInterval(updateTimer, 1000);
+
+    let timer= document.getElementsByClassName('timer');
+    let time= 3;
+    setInterval(function(){
+        timer.innerHTML = time;
+        time--;
+        if(time<=0) time = 4;
+    },1000)
 }
 
 
@@ -91,7 +95,7 @@ const gallery = new Swiper('.gallery__slider', {
 $(document).ready(function(){
     $('#header__select').select2()
 
-    updateCounter(1, swiper.slides.length);
+    updateCounter(1, preference.slides.length);
     startTimer();
 });
 
