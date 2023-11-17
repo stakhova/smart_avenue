@@ -729,13 +729,53 @@
 
 
 .contact{
+  .container{
+    padding: 7.4rem 10rem 10rem ;
+  }
   &__flex{
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap:4.2rem;
   }
+  input, textarea{
+    display: block;
+  }
+  label{
+    color:var(--color-grey);
+    font: 400 1.2rem/160% var(--Roboto);
+
+  }
+  &__form{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+  }
+  &__input{
+    width: 100%;
+
+    input, textarea{
+      margin-top: 1rem;
+      width: 100%;
+      padding: 1.2rem 1.5rem;
+      font: 400 1.4rem/170% var(--Roboto);
+      background: var(--color-input);
+      color:var(--color-text);
+      border: none;
+    }
+  }
+  &__submit{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap:1.5rem;
+    p{
+      color:#637079;
+      font: 400 1.2rem/180% var(--Roboto);
+    }
+  }
 }
+
 
 .footer{
   color:var(--color-white);
