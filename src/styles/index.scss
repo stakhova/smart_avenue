@@ -650,6 +650,7 @@
 .building{
   .container{
     padding: 4rem 0 4.4rem;
+    overflow: hidden;
   }
   &__slide{
     display: flex;
@@ -727,9 +728,176 @@
 }
 
 .footer{
-  background-color: var(--color-footer);
+  color:var(--color-white);
+    position: relative;
+    //&:after{
+    //  content: '';
+    //  position: absolute;
+    //  width:30%;
+    //  height: 100%;
+    //  top: 0;
+    //  left: 0;
+    //  z-index: 1;
+    //  background-color: var(--color-footer-top);
+    //}
+  &__top{
+    width: max-content;
+    background-color: var(--color-footer-top);
+    padding: 1.75rem 16.2rem 1.75rem 0;
+  }
+  &__wrap{
+    background-color: var(--color-footer);
+  }
   &__block{
-    padding: 6.7rem 0 7.1rem 7.6rem ;
+    padding: 6.7rem 10rem 7.1rem 7.6rem ;
+    display: flex;
+    justify-content: space-between;
+    gap:3rem;
+    position: relative;
+    .footer__title{
+      margin-bottom: 2rem;
+    }
+    &:after{
+      content: '';
+      position: absolute;
+      width:30%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background-color: var(--color-footer-top);
+    }
+  }
+  &__title{
+    font: 600 1.6rem/140% var(--Montserrat);
+    letter-spacing: -0.016rem;
+
+  }
+  &__nav{
+    &-menu{
+      display: flex;
+      flex-direction: column;
+      gap:1.2rem;
+      a{
+        opacity: 0.7;
+        font: 400 1.3rem/170% var(--Roboto);
+        transition: 0.2s all ease;
+        &:hover{
+          opacity: 1;
+          transition: 0.2s all ease;
+        }
+      }
+    }
+  }
+  &__news{
+    &-menu{
+      display: flex;
+      flex-direction: column;
+      gap:1.5rem;
+      h4{
+        font: 400 1.2rem/160% var(--Roboto);
+        margin-bottom: 2px;
+        color:var(--color-grey);
+      }
+      a{
+        font: 400 1.3rem/170% var(--Roboto);
+        opacity: 0.7;
+        transition: 0.2s all ease;
+        &:hover{
+          opacity: 1;
+          transition: 0.2s all ease;
+        }
+      }
+    }
+  }
+  &__contact{
+    &-menu{
+      display: flex;
+      gap:0.8rem;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      & > *{
+        position: relative;
+        padding-left: 2.6rem;
+        font: 400 1.3rem/170% var(--Roboto);
+        opacity: 0.7;
+        &:after{
+          content: '';
+          position: absolute;
+          width: 1.8rem;
+          height: 1.8rem;
+          top: 0;
+          left: 0;
+        }
+      }
+      & > a:hover{
+        opacity: 1;
+        transition: 0.2s all ease;
+      }
+    }
+    &-loc:after{
+      background: url("../img/Pin-footer.svg") center/1.8rem 1.8rem no-repeat;
+    }
+    &-phone:after{
+      background: url("../img/Phone-footer.svg") center/1.8rem 1.8rem no-repeat;
+    }
+    &-email:after{
+      background: url("../img/Email-footer.svg") center/1.8rem 1.8rem no-repeat;
+    }
+    &-time:after{
+      background: url("../img/Time-footer.svg") center/1.8rem 1.8rem no-repeat;
+    }
+  }
+  &__social{
+    display: flex;
+    gap:1.2rem;
+    &-title{
+      font: 700 1.3rem/150% var(--Roboto);
+      margin-bottom: 1.2rem;
+    }
+    & > * {
+      position: relative;
+      width: 1.8rem;
+      height: 1.8rem;
+      transition: 0.2s all ease;
+      &:hover {
+        filter: brightness(0) invert(1);
+        transition: 0.2s all ease;
+
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        width: 1.8rem;
+        height: 1.8rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+    }
+    &-youtube:after{
+        background: url("../img/yt.svg") center/1.8rem 1.8rem no-repeat;
+    }
+    &-facebook:after{
+      background: url("../img/fb.svg") center/1.8rem 1.8rem no-repeat;
+    }
+    &-insta:after{
+      background: url("../img/ints.svg") center/1.8rem 1.8rem no-repeat;
+    }
+
+  }
+  &__info{
+    max-width: 22.5%;
+    &-text{
+      opacity: 0.5;
+      display: flex;
+      flex-direction: column;
+      gap:1.5rem;
+      p{
+        font: 400 1.2rem/160% var(--Roboto);
+      }
+
+    }
   }
 
 }
