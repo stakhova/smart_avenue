@@ -727,6 +727,16 @@
   }
 }
 
+
+.contact{
+  &__flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:4.2rem;
+  }
+}
+
 .footer{
   color:var(--color-white);
     position: relative;
@@ -757,16 +767,16 @@
     .footer__title{
       margin-bottom: 2rem;
     }
-    &:after{
-      content: '';
-      position: absolute;
-      width:30%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      background-color: var(--color-footer-top);
-    }
+    //&:after{
+    //  content: '';
+    //  position: absolute;
+    //  width:30%;
+    //  height: 100%;
+    //  top: 0;
+    //  left: 0;
+    //  z-index: 1;
+    //  background-color: var(--color-footer-top);
+    //}
   }
   &__title{
     font: 600 1.6rem/140% var(--Montserrat);
