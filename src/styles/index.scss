@@ -109,7 +109,6 @@
     .select2-container--default .select2-selection--single .select2-selection__rendered{
       color: var(--color-black);
     }
-
     .header__menu{
       color:var(--color-menu);
     }
@@ -119,6 +118,14 @@
     .header__info-icon > *{
       color:  var(--color-black);
     }
+    .header__item{
+      opacity: 1;
+      color: var(--color-menu);
+      &:hover{
+        color: var(--color-black);
+      }
+    }
+
   }
   &__mob{
     display: none;
@@ -142,7 +149,11 @@
       & > h3{
         opacity: 0.6;
         font: 400 1.1rem/180% var(--Roboto);
+        & > a{
+          text-decoration: underline;
+        }
       }
+
     }
     &-icon{
       & > *{
@@ -172,10 +183,16 @@
   &__menu{
     display: flex;
     gap:3rem;
-
+    margin-left: -6rem;
   }
   &__item{
     font: 400 1.4rem/170% var(--Roboto);
+    opacity: 0.7;
+    transition: 0.2s all ease;
+    &:hover{
+      opacity: 1;
+      transition: 0.2s all ease;
+    }
     &>*{
       white-space: nowrap;
     }
@@ -750,9 +767,13 @@
     display: flex;
     flex-direction: column;
     gap:2rem;
+    margin-top: 2rem;
   }
+
   &__input{
     width: 100%;
+    position: relative;
+
 
     input, textarea{
       margin-top: 1rem;
@@ -764,6 +785,10 @@
       border: none;
     }
   }
+  &__input input{
+    padding: 1.2rem 3.4rem 1.2rem 1.5rem;
+  }
+
   &__submit{
     display: flex;
     justify-content: space-between;
@@ -774,12 +799,32 @@
       font: 400 1.2rem/180% var(--Roboto);
     }
   }
+  textarea{
+    max-height: 10rem;
+    height: 10rem;
+  }
+  &__phone{
+    position: relative;
+    input{
+      padding-left: 3.4rem;
+    }
+    &:before{
+      content: '';
+      position: absolute;
+      bottom: 1.8rem;
+      left: 1.2rem;
+      width: 1.4rem;
+      height: 1.4rem;
+      background: url("../img/ukraine.png") center/1.4rem 1.4rem no-repeat;
+    }
+  }
 }
 
 
 .footer{
   color:var(--color-white);
-    position: relative;
+  position: relative;
+  background-color: var(--color-footer-back);
     //&:after{
     //  content: '';
     //  position: absolute;
@@ -790,13 +835,16 @@
     //  z-index: 1;
     //  background-color: var(--color-footer-top);
     //}
-  &__top{
+  &__top-wrap{
     width: max-content;
-    background-color: var(--color-footer-top);
+    background-color: var(--color-footer-back);
     padding: 1.75rem 16.2rem 1.75rem 0;
   }
   &__wrap{
-    background-color: var(--color-footer);
+    background-color: var(--color-footer-top);
+    .container{
+      background-color: var(--color-footer);
+    }
   }
   &__block{
     padding: 6.7rem 10rem 7.1rem 7.6rem ;
@@ -804,6 +852,25 @@
     justify-content: space-between;
     gap:3rem;
     position: relative;
+    & > *{
+      &:first-child{
+        flex: 20%;
+
+      }
+      &:nth-child(2){
+        flex: 30%;
+
+      }
+      &:nth-child(3){
+        flex: 30%;
+        margin-left: 20rem;
+
+      }
+      &:nth-child(4){
+        flex: 22.5%;
+
+      }
+    }
     .footer__title{
       margin-bottom: 2rem;
     }
@@ -818,10 +885,18 @@
     //  background-color: var(--color-footer-top);
     //}
   }
+  &__flex{
+    display: flex;
+    gap:1rem
+  }
   &__title{
     font: 600 1.6rem/140% var(--Montserrat);
     letter-spacing: -0.016rem;
-
+    margin-bottom: 0.6rem;
+  }
+  &__subtitle{
+    font: 400 1.3rem/170% var(--Roboto);
+    opacity: 0.76;
   }
   &__nav{
     &-menu{
@@ -952,7 +1027,23 @@
 
 }
 
+label.error{
+  position: absolute;
+  color:var(--color-error);
+  right: 0;
+  &:after{
+    content:'' ;
+    position: absolute;
+    bottom: 2.2rem;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    width: 1.9rem;
+    height: 1.9rem;
+    background: url("../img/Alert.svg") center/1.9rem 1.9rem no-repeat;
 
+  }
+
+}
 
 .select2     {
   width: 3.7rem!important;
