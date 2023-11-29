@@ -125,12 +125,29 @@ html {
         font-size: 8.89px;
     }
 }
-
+@media only screen and (max-width: 1180px) {
+    html {
+        font-size: 8.19px;
+    }
+}
 
 @media only screen and (max-width: 1024px) {
     html {
         font-size: 7.11px;
     }
+}
+
+@media only screen and (max-width: 950px) {
+    html {
+        font-size: 6.6px;
+    }
+}
+
+@media only screen and (max-width: 890px) {
+    html {
+        font-size: 6.18px;
+    }
+
 }
 
 @media only screen and (max-width: 800px) {

@@ -31,6 +31,10 @@ let preference = new Swiper('.preference__slider', {
 });
 
 
+function mobChange(){
+    $('.banner').append($('.banner__pdf-wrap'))
+}
+
 
 function updateCounter(currentSlide, totalSlides) {
     $('.counter').text( currentSlide + '/' + totalSlides);
@@ -171,13 +175,20 @@ function sendForm(form, url, func,funcError) {
     ajaxSend(form, url, func,funcError);
 }
 
+function openMenu () {
+    $('.header__burger').toggleClass("header__burger-open");
+    $('.header__menu-mob').toggleClass('header__menu-show');
+    $('body').toggleClass('hidden');
+};
+
 
 $(document).ready(function(){
     $('#header__select').select2()
     updateCounter(1, preference.slides.length);
     startTimer();
-    changeHeader()
-
+    changeHeader();
+    mobChange()
+    $(document).on('click', '.header__burger', openMenu)
     let contactForm = $('.contact__form');
     validateForm(contactForm, function () {
         sendForm(contactForm, '/wp-admin/admin-ajax.php');
