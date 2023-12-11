@@ -182,18 +182,30 @@ function openMenu () {
 };
 
 
+function chooseFilter(){
+    $(document).on('click','.plan__filter-block button', function (){
+        $(this).toggleClass('active')
+        $(this).nextAll('button').removeClass('active')
+        $(this).prevAll('button').removeClass('active')
+    })
+}
+
+
+
 $(document).ready(function(){
     $('#header__select').select2()
     updateCounter(1, preference.slides.length);
     startTimer();
     changeHeader();
-    mobChange()
+    mobChange();
+    chooseFilter()
+    $('.contact__phone input').inputmask('+380 (99) 999 99 99');
     $(document).on('click', '.header__burger', openMenu)
     let contactForm = $('.contact__form');
     validateForm(contactForm, function () {
         sendForm(contactForm, '/wp-admin/admin-ajax.php');
     });
-    $('.contact__phone input').inputmask('+380 (99) 999 99 99');
+
 
 });
 
