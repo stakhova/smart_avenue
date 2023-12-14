@@ -626,6 +626,26 @@
       }
     }
   }
+  &__flex{
+    display: flex;
+    gap:2rem;
+    & > *{
+      width: calc(50% - 1rem);
+    }
+    & > *:last-child{
+      font: 400 1.4rem/170% "Roboto" ;
+      text-align: left;
+    }
+    button{
+      color:var(--color-primary);
+
+    }
+  }
+  &__block{
+    display: flex;
+    flex-direction: column;
+    gap:0.9rem;
+  }
 }
 
 .news{
@@ -731,6 +751,7 @@
     }
   }
 }
+
 
 
 .building{

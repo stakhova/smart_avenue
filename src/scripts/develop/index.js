@@ -12,7 +12,7 @@ const banner = new Swiper('.banner__slider', {
 
 });
 
-let preference = new Swiper('.preference__slider', {
+const preference = new Swiper('.preference__slider', {
     slidesPerView: 1,
     spaceBetween: 0,
     centeredSlides: false,
@@ -29,6 +29,38 @@ let preference = new Swiper('.preference__slider', {
     },
 
 });
+const plan = new Swiper('.plan__slider', {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    centeredSlides: false,
+    loop: true,
+    navigation: {
+        nextEl: ".plan__next",
+        prevEl: ".plan__prev"
+    }
+});
+const building = new Swiper('.building__slider', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    centeredSlides: false,
+    loop: true,
+    navigation: {
+        nextEl: ".building__next",
+        prevEl: ".building__prev"
+    }
+
+});
+const gallery = new Swiper('.gallery__slider', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    centeredSlides: true,
+    loop: true,
+    navigation: {
+        nextEl: ".gallery__next",
+        prevEl: ".gallery__prev"
+    }
+});
+
 
 
 function mobChange(){
@@ -72,39 +104,12 @@ function startTimer() {
 
 function changeHeader(){
     let scrolled = $(window).scrollTop();
-    if(scrolled>0){
+    if (scrolled > 0){
         $('.header').addClass('header__fixed')
-    }else{
+    } else {
         $('.header').removeClass('header__fixed')
     }
 }
-
-const building = new Swiper('.building__slider', {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    centeredSlides: false,
-    loop: true,
-    navigation: {
-        nextEl: ".building__next",
-        prevEl: ".building__prev"
-    }
-
-});
-
-
-
-const gallery = new Swiper('.gallery__slider', {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    centeredSlides: true,
-    loop: true,
-    navigation: {
-        nextEl: ".gallery__next",
-        prevEl: ".gallery__prev"
-    }
-});
-
-
 
 const validateForm = (form, func) => {
     form.on("submit", function (e) {
@@ -150,7 +155,6 @@ const validateForm = (form, func) => {
         }
     });
 };
-
 
 function ajaxSend(date, url, func,funcError) {
     $.ajax({
@@ -199,6 +203,7 @@ $(document).ready(function(){
     changeHeader();
     mobChange();
     chooseFilter()
+    // initSlider()
     $('.contact__phone input').inputmask('+380 (99) 999 99 99');
     $(document).on('click', '.header__burger', openMenu)
     let contactForm = $('.contact__form');
