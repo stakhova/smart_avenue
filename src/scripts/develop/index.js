@@ -63,6 +63,55 @@ const gallery = new Swiper('.gallery__slider', {
 
 
 
+
+
+
+const apartments = {
+    number: [1, 2, 3, 4, 5],
+    section: [1, 2, 3],
+    type: 'S (Smart)',
+    square: [22, 27, 28, 31],
+    price: [389000, 440000, 559000, 790000],
+    images: {
+        plan22: 'src/images/plan22.png',
+        plan27: 'src/images/plan27.png',
+        plan28: 'src/images/plan28.png',
+        plan31: 'src/images/plan31.png',
+    },
+};
+
+function getRandomFromArray(array) {
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return randomIndex;
+}
+
+function createApartmentsList() {
+    let apartmentsList = []
+    for (let i = 1; i <= 15; i++) {
+        const squarePriceImageIndex = getRandomFromArray(apartments.square);
+        const newApartment = {
+            name: null,
+            number: getRandomFromArray(apartments.number),
+            section: getRandomFromArray(apartments.section),
+            type: apartments.type,
+            square: apartments.square[squarePriceImageIndex],
+            price: apartments.price[squarePriceImageIndex],
+            image:
+                apartments.images[`plan${apartments.square[squarePriceImageIndex]}`],
+        };
+
+        newApartment.name = `${newApartment.number}C${newApartment.square}K`;
+        console.log('newApartment.name', newApartment.name  )
+        console.log('newApartment', newApartment )
+        apartmentsList.push(newApartment);
+        console.log('apartmentsList', apartmentsList )
+    }
+}
+
+
+
+
+
 function mobChange(){
     $('.banner').append($('.banner__pdf-wrap'))
 }
@@ -210,6 +259,7 @@ $(document).ready(function(){
     validateForm(contactForm, function () {
         sendForm(contactForm, '/wp-admin/admin-ajax.php');
     });
+    createApartmentsList()
 
 
 });
