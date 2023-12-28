@@ -277,7 +277,7 @@
     }
   }
   &__nav{
-    left: 48%;
+    left: 50%;
     bottom: 0;
     transform: translateX(-50%);
     z-index: 1;
@@ -335,7 +335,8 @@
       z-index: 2;
       width: max-content;
       bottom: -8.7rem;
-      right: 10rem;
+      left: calc(50% + 36.4rem);
+      transform: translateX(-50%);
     }
     &-img{
       position: absolute;
@@ -649,6 +650,7 @@
     button{
       color:var(--color-primary);
 
+
     }
     position: relative;
     &:after{
@@ -703,6 +705,7 @@
     gap:1.7rem;
     align-items: center;
     button {
+      width: 100%;
       &:after{
         background: url(../img/Phone-plan.svg) center/2.4rem 2.4rem no-repeat;
       }
@@ -789,6 +792,12 @@
     font: 800 2rem/140% var(--Montserrat);
     letter-spacing: -0.02rem;
     margin-bottom: 2rem;
+    display: block;
+    transition: 0.2s all ease;
+    &:hover{
+      transition: 0.2s all ease;
+      color: var(--color-primary);
+    }
   }
   &__text{
     & > *{
