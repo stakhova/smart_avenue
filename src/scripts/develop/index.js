@@ -17,15 +17,12 @@ const preference = new Swiper('.preference__slider', {
     spaceBetween: 0,
     centeredSlides: false,
     loop: true,
+    autoplay: {
+        delay: 4000,
+    },
     navigation: {
         nextEl: ".preference__next",
         prevEl: ".preference__prev"
-    },
-    on: {
-        slideChange: function() {
-            // updateCounter(this.realIndex + 1, swiper.slides.length);
-            startTimer();
-        },
     },
 
 });
@@ -113,7 +110,15 @@ function createApartmentsList() {
 
 
 function mobChange(){
-    $('.banner').append($('.banner__pdf-wrap'))
+    if(window.innerWidth < 666){
+        $('.banner').append($('.banner__pdf-wrap'))
+        $('.header__menu-mob').append($('.header__info'))
+        $('.header__menu-mob').append($('.banner__social'))
+        let firstItem = $(".header__info-item:first");
+        let secondItem = $(".header__info-item:eq(1)");
+        firstItem.before(secondItem);
+    }
+
 }
 
 
@@ -122,33 +127,6 @@ function updateCounter(currentSlide, totalSlides) {
 }
 
 
-var timerInterval;
-
-function startTimer() {
-    clearInterval(timerInterval);
-    let seconds = 4; // Set the timer duration (in seconds)
-    let timerElement = $('.timer');
-
-    let updateTimer = function() {
-        if (seconds === 0) {
-            preference.slideNext();
-            seconds = 4;
-        }
-        timerElement.text(seconds);
-        seconds--;
-    };
-
-    updateTimer();
-    timerInterval = setInterval(updateTimer, 1000);
-
-    let timer= document.getElementsByClassName('timer');
-    let time= 3;
-    setInterval(function(){
-        timer.innerHTML = time;
-        time--;
-        if(time<=0) time = 4;
-    },1000)
-}
 
 
 function changeHeader(){
@@ -205,6 +183,19 @@ const validateForm = (form, func) => {
     });
 };
 
+
+
+// let countdownNumberEl = $('.countdown-number');
+// let countdown = 4;
+//
+// countdownNumberEl.text(countdown);
+//
+// setInterval(function() {
+//     countdown = --countdown <= 0 ? 10 : countdown;
+//
+//     countdownNumberEl.textContent = countdown;
+// }, 1000);
+
 function ajaxSend(date, url, func,funcError) {
     $.ajax({
         url: url,
@@ -248,13 +239,14 @@ function chooseFilter(){
 $(document).ready(function(){
     $('#header__select').select2()
     updateCounter(1, preference.slides.length);
-    startTimer();
-    changeHeader();
+    changeHeader()
     mobChange();
     chooseFilter()
     // initSlider()
     $('.contact__phone input').inputmask('+380 (99) 999 99 99');
     $(document).on('click', '.header__burger', openMenu)
+
+
     let contactForm = $('.contact__form');
     validateForm(contactForm, function () {
         sendForm(contactForm, '/wp-admin/admin-ajax.php');

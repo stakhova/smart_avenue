@@ -182,7 +182,7 @@
       background: url("../img/Pin.svg") center/2rem 2rem no-repeat;
     }
     &-phone:after{
-      background: url("../img/phone.svg") center/2rem 2rem no-repeat;
+      background: url("../img/phone-header.svg") center/2rem 2rem no-repeat;
     }
 
   }
@@ -419,38 +419,40 @@
       }
     }
   }
-  &__timer{
-    @keyframes circletimer{
-    0%{
-      stroke-dashoffset: 400;
-      stroke-dasharray: 400
+
+  .countdown {
+    position: relative;
+    height: 7.5rem;
+    width: 7.5rem;
+    text-align: center;
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 7.2rem;
+    height: 7.2rem;
+    transform: translate(-50%, -50%) rotateY(-180deg) rotateZ(-90deg);
+  }
+
+  svg circle {
+    stroke-dasharray: 220px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 0.4rem;
+    stroke: red;
+    fill: none;
+    animation: countdown 4s linear infinite forwards;
+  }
+
+  @keyframes countdown {
+    from {
+      stroke-dashoffset: 0px;
     }
-    100%{
-      stroke-dashoffset: 0;
-      stroke-dasharray: 400;
+    to {
+      stroke-dashoffset: 220px;
     }
-
-    }
-
-
-  svg{
-      background-color: transparent;
-      position: relative;
-
-      width: 7.2rem;
-      height: 7.2rem;
-
-    }
-
-    .circle{
-      stroke: var(--color-primary);
-      stroke-width: 4;
-      fill: transparent;
-      stroke-dashoffset: 400;
-      stroke-dasharray: 0;
-      animation: 4s circletimer linear;
-    }
-
   }
 }
 
@@ -1375,12 +1377,23 @@ label.error{
     margin-bottom: 2rem;
   }
 
-  .header__menu{
+  .header__menu-mob{
     display: none;
   }
   .header{
     background-color: var(--color-white);
   }
+  .header__info{
+    flex-wrap: wrap;
+    padding: 3rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .header__info-item:first-child{
+    width: 100%;
+    margin: 0 auto;
+  }
+
   .header{
     background-color: var(--color-white);
     .select2-container--default .select2-selection--single .select2-selection__rendered{
@@ -1439,7 +1452,7 @@ label.error{
     //margin-bottom: 8.5rem;
   }
   .wrap__main{
-    padding-top: 8.5rem;
+    padding-top: 7.6rem;
   }
   .header__burger{
     transition: .2s ease;
@@ -1520,9 +1533,24 @@ label.error{
   .banner__pdf-title{
     max-width: 100%;
   }
+
 }
 
+@media only screen and (max-width: 780px){
+  .header__info {
+    gap: 2.8rem;
+  }
+  .header__logo{
+    width: 16rem;
+  }
+  .header .container{
+    padding: 0.5rem 1.5rem;
+  }
+  .header__block{
+    gap:0;
+  }
 
+}
 @media only screen and (max-width: 666px){
   .news__item{
     display: none;
@@ -1568,8 +1596,11 @@ label.error{
     padding: 2.1rem 2.5rem 2.2rem;
     height: 100%;
   }
-  .header__block .header__info{
+  .header__block > .header__info{
     display: none;
+  }
+  .header__info-lang:after{
+    display: block
   }
   .header__logo{
     position: absolute;
@@ -1579,6 +1610,7 @@ label.error{
   }
   .header__menu-show{
     top:7.5rem;
+    display: block;
   }
   .banner .container{
     padding: 10rem 2.5rem 16rem;
@@ -1634,4 +1666,17 @@ label.error{
   .gallery .container{
     padding: 3rem 0;
   }
+  .header__logo{
+   width: 18.1rem;
+  }
+  .banner__social{
+    position: relative;
+    right: unset;
+    top:unset;
+    transform:none;
+    flex-direction: row;
+    justify-content: center;
+    filter: invert(30%) sepia(71%) saturate(2880%) hue-rotate(341deg) brightness(100%) contrast(90%);
+  }
+
 }
