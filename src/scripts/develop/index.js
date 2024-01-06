@@ -2,8 +2,6 @@ const banner = new Swiper('.banner__slider', {
     slidesPerView: 1,
     spaceBetween: 0,
     centeredSlides: false,
-
-
     loop: true,
     navigation: {
         nextEl: ".banner__next",
@@ -11,6 +9,8 @@ const banner = new Swiper('.banner__slider', {
     }
 
 });
+
+
 
 const preference = new Swiper('.preference__slider', {
     slidesPerView: 1,
@@ -41,6 +41,10 @@ const building = new Swiper('.building__slider', {
     spaceBetween: 0,
     centeredSlides: false,
     loop: true,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
     navigation: {
         nextEl: ".building__next",
         prevEl: ".building__prev"
@@ -59,7 +63,18 @@ const gallery = new Swiper('.gallery__slider', {
 });
 
 
+function startTimerAnimation() {
 
+    $(".preference__nav > *").click(function() {
+        $(".countdown circle").css("animation", "countdown 4s linear forwards");
+        console.log(22222)
+
+        setTimeout(function() {
+            // Code to execute when the timer completes (4 seconds in this case)
+            console.log("Timer animation completed!");
+        }, 4000);
+    });
+}
 
 
 
@@ -128,6 +143,18 @@ function updateCounter(currentSlide, totalSlides) {
 
 
 
+function initModalSlider(){
+    const modalSlider = new Swiper('.modal__project-slider', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        centeredSlides: false,
+        loop: true,
+        navigation: {
+            nextEl: ".modal__project__next",
+            prevEl: ".modal__project__prev"
+        }
+    });
+}
 
 function changeHeader(){
     let scrolled = $(window).scrollTop();
@@ -213,6 +240,34 @@ function ajaxSend(date, url, func,funcError) {
 
 }
 
+
+function toggleModal(btn, modal) {
+    btn.click(function () {
+        initModalSlider()
+        modal.show();
+        $('body').css('overflow', 'hidden');
+        return false;
+    });
+    $('.modal__close').click(function () {
+        $(this).closest(modal).hide();
+        $('body').css('overflow', 'visible');
+        return false;
+    });
+    $(document).keydown(function (e) {
+        if (e.keyCode === 27) {
+            e.stopPropagation();
+            modal.hide();
+            $('body').css('overflow', 'visible');
+        }
+    });
+    modal.click(function (e) {
+        if ($(e.target).closest('.modal__content').length == 0) {
+            $(this).hide();
+            $('body').css('overflow', 'visible');
+        }
+    });
+}
+
 // send form
 function sendForm(form, url, func,funcError) {
     form = form.serialize();
@@ -236,6 +291,13 @@ function chooseFilter(){
 
 
 
+function counterForSlider(){
+    $('.preference__slide').each(function (){
+        let count = $(this).attr('aria-label')
+        $(this).find('.countdown__number').text(count)
+    })
+}
+
 $(document).ready(function(){
     $('#header__select').select2()
     updateCounter(1, preference.slides.length);
@@ -252,6 +314,9 @@ $(document).ready(function(){
         sendForm(contactForm, '/wp-admin/admin-ajax.php');
     });
     createApartmentsList()
+    counterForSlider()
+    startTimerAnimation()
+    toggleModal($('.plan__floor button'), $('.modal__project'))
 
 
 });

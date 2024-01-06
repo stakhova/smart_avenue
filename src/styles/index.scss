@@ -419,29 +419,38 @@
       }
     }
   }
-
   .countdown {
     position: relative;
-    height: 7.5rem;
-    width: 7.5rem;
+    height: 4rem;
+    width: 4rem;
     text-align: center;
+    margin-bottom: 3.7rem;
+    &__number{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      letter-spacing: -0.022rem;
+      font: 700 2.2rem/140% 'Montserrat';
+      transform: translate(-50%,-50%);
+      white-space: nowrap;
+    }
   }
 
   svg {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 7.2rem;
-    height: 7.2rem;
-    transform: translate(-50%, -50%) rotateY(-180deg) rotateZ(-90deg);
+    top: 0;
+    right: 0;
+    width: 4rem;
+    height: 4rem;
+    transform: rotateY(-180deg) rotateZ(-90deg);
   }
 
   svg circle {
-    stroke-dasharray: 220px;
+    stroke-dasharray: 113px;
     stroke-dashoffset: 0px;
     stroke-linecap: round;
-    stroke-width: 0.4rem;
-    stroke: red;
+    stroke-width: 2px;
+    stroke: var(--color-primary);
     fill: none;
     animation: countdown 4s linear infinite forwards;
   }
@@ -451,116 +460,10 @@
       stroke-dashoffset: 0px;
     }
     to {
-      stroke-dashoffset: 220px;
+      stroke-dashoffset: 113px;
     }
   }
 }
-
-
-
-.viewbox {
-  width: 50%;
-}
-
-#progress {
-  stroke-dasharray: 296 296;
-  stroke-dashoffset: 296;
-  animation: grow 4s ease-out infinite;
-}
-
-@keyframes grow {
-  100% { stroke-dashoffset: 0; }
-}
-
-#pulse {
-  stroke-dasharray: 0 0 0 296;
-  animation: pulse 1.5s linear infinite;
-}
-
-@keyframes pulse {
-  33% { stroke-dasharray: 0   0  148 296; }
-  66% { stroke-dasharray: 0  50 200 296; }
-  100% { stroke-dasharray: 0 296   0 296; }
-}
-
-
-.circleProgress_wrapper {
-  position: relative;
-  //top: 1rem;
-  //left: 6.5rem;
-  width: 7.2rem;
-  height: 7.2rem;
-  //margin: .5rem auto;
-  text-align: center;
-}
-.right {
-  right: 0;
-}
-.left{
-  left: 0;
-}
-.wrapper{
-  position: absolute;
-  width: 3.6rem;
-  height: 7.2rem;
-  top: 0;
-  overflow: hidden;
-}
-.circleProgress{
-  width: 7.2rem;
-  height: 7.2rem;
-  border: .4rem solid var(--color-circle);
-  border-radius: 50%;
-  box-sizing: content-box;
-  position: absolute;
-  top: 0;
-}
-.rightcircle{
-  border-top: .4rem solid var(--color-primary);
-  border-right: .4rem solid var(--color-primary);
-  right: 0;
-}
-.leftcircle{
-  border-bottom: .4rem solid var(--color-primary);
-  border-left: .4rem solid var(--color-primary);
-  left: 0;
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg)
-}
-.right_cartoon {
-  -webkit-animation: circleProgressLoad_right 4s linear infinite forwards;
-  animation: circleProgressLoad_right 4s linear infinite forwards;
-}
-.left_cartoon {
-  -webkit-animation: circleProgressLoad_left 4s linear infinite forwards;
-  animation: circleProgressLoad_left 4s linear infinite forwards
-}
-
-
-@keyframes circleProgressLoad_right {
-  0% {
-    -webkit-transform: rotate(46deg);
-    transform: rotate(46deg)
-  }
-
-  50%,to {
-    -webkit-transform: rotate(-136deg);
-    transform: rotate(-136deg)
-  }
-}
-
-@keyframes circleProgressLoad_left {
-  0%,50% {
-    -webkit-transform: rotate(46deg);
-    transform: rotate(46deg)
-  }
-
-  to {
-    -webkit-transform: rotate(-136deg);
-    transform: rotate(-136deg)
-  }
-}
-
 
 
 
@@ -891,9 +794,9 @@
       }
     }
   }
-
-
-
+  &__pagination{
+    display: none;
+  }
 }
 
 .gallery{
@@ -1231,6 +1134,81 @@ label.error{
 .select2-container .select2-selection--single{
   height: auto;
 }
+
+.swiper-pagination{
+
+}
+
+
+
+
+.modal {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  &__close{
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    cursor: pointer;
+    z-index: 5;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 3.2rem;
+      height: 3.2rem;
+      background: url("../img/Cross.svg") center/3.2rem 3.2rem no-repeat;
+    }
+  }
+  &__wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: var(--color-black);
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+    }
+  }
+  &__content {
+    max-width: 90rem;
+    width: 100%;
+    background: var(--color-white);
+    border-radius: 0.2rem;
+    position: absolute;
+    padding: 3.2rem;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    max-height: 90vh;
+    overflow: auto;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 0.4rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-grey);
+    }
+  }
+}
+
+
+
 @media only screen and (max-width: 1439px) {
   .news__img{
     height: 21.6vw;
@@ -1336,6 +1314,9 @@ label.error{
   .building__text{
     color:var(--color-white)
   }
+  .building__pagination{
+    display: flex;
+  }
   .building__nav{
     display: none;
   }
@@ -1383,16 +1364,7 @@ label.error{
   .header{
     background-color: var(--color-white);
   }
-  .header__info{
-    flex-wrap: wrap;
-    padding: 3rem;
-    justify-content: center;
-    align-items: center;
-  }
-  .header__info-item:first-child{
-    width: 100%;
-    margin: 0 auto;
-  }
+
 
   .header{
     background-color: var(--color-white);
@@ -1533,7 +1505,13 @@ label.error{
   .banner__pdf-title{
     max-width: 100%;
   }
-
+  .footer .container{
+    padding: 0 0 0 3rem ;
+  }
+  .footer__top-wrap{
+   width: 100%;
+    padding: 1.8rem 0;
+  }
 }
 
 @media only screen and (max-width: 780px){
@@ -1678,5 +1656,29 @@ label.error{
     justify-content: center;
     filter: invert(30%) sepia(71%) saturate(2880%) hue-rotate(341deg) brightness(100%) contrast(90%);
   }
-
+  .header__info{
+    flex-wrap: wrap;
+    padding: 3rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .header__info-item:first-child{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .footer .container{
+    padding: 0 ;
+  }
+  .contact .container {
+    padding: 1.6rem 3rem 0;
+  }
+  .footer__top-wrap{
+    padding: 1.9rem 2.9rem;
+  }
+  .footer__block > *{
+    width: 100% !important;
+  }
+  .footer__block{
+    padding: 4rem 2.5rem;
+  }
 }
