@@ -42,7 +42,7 @@ const building = new Swiper('.building__slider', {
     centeredSlides: false,
     loop: true,
     pagination: {
-        el: '.swiper-pagination',
+        el: '.building__pagination',
         clickable: true,
     },
     navigation: {
@@ -59,7 +59,12 @@ const gallery = new Swiper('.gallery__slider', {
     navigation: {
         nextEl: ".gallery__next",
         prevEl: ".gallery__prev"
-    }
+    },
+    pagination: {
+        el: '.gallery__pagination',
+        clickable: true,
+    },
+
 });
 
 
@@ -128,7 +133,6 @@ function mobChange(){
     if(window.innerWidth < 666){
         $('.banner').append($('.banner__pdf-wrap'))
         $('.header__menu-mob').append($('.header__info'))
-        $('.header__menu-mob').append($('.banner__social'))
         let firstItem = $(".header__info-item:first");
         let secondItem = $(".header__info-item:eq(1)");
         firstItem.before(secondItem);
@@ -137,13 +141,15 @@ function mobChange(){
 }
 
 
-function updateCounter(currentSlide, totalSlides) {
-    $('.counter').text( currentSlide + '/' + totalSlides);
+function updateCounter(counter, currentSlide, totalSlides) {
+    counter.text( currentSlide + '/' + totalSlides);
 }
 
 
 
 function initModalSlider(){
+    let count = $('.modal__project-slide').length
+    $('.modal__project-counter span').text(`1 / ${count}`)
     const modalSlider = new Swiper('.modal__project-slider', {
         slidesPerView: 1,
         spaceBetween: 0,
@@ -154,6 +160,16 @@ function initModalSlider(){
             prevEl: ".modal__project__prev"
         }
     });
+
+
+    setTimeout(function (){
+        $('.modal__project-slide').each(function (){
+            let count = $(this).attr('aria-label')
+            console.log(4444,count)
+            $(this).find('.modal__project-counter span').text(count)
+        })
+    }, 500)
+
 }
 
 function changeHeader(){
@@ -300,7 +316,7 @@ function counterForSlider(){
 
 $(document).ready(function(){
     $('#header__select').select2()
-    updateCounter(1, preference.slides.length);
+    updateCounter($('.counter'), 1, preference.slides.length);
     changeHeader()
     mobChange();
     chooseFilter()
