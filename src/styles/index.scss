@@ -485,6 +485,9 @@
       stroke-dashoffset: 113px;
     }
   }
+  &__pagination{
+    display: none;
+  }
 }
 
 
@@ -1367,7 +1370,7 @@ label.error{
   .building__text{
     color:var(--color-white)
   }
-  .building__pagination{
+  .building__pagination, .preference__pagination{
     display: flex;
   }
   .building__nav{
@@ -1575,6 +1578,46 @@ label.error{
    width: 100%;
     padding: 1.8rem 0;
   }
+  .preference .container{
+    padding: 11rem 3rem 3rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .preference__desc{
+    background-color: transparent;
+  }
+  .preference__img{
+    height: 63rem;
+    width: 100%;
+    position: relative;
+    &:after{
+      content: '';
+      position: absolute;
+      left: 50%;
+      top:50%;
+      transform: translate(-50%,-50%);
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      background:var(--color-gradient) ;
+    }
+  }
+  .preference__desc{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 13rem 5rem 14.1rem;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+
+  }
+  .preference__nav{
+    display: none;
+  }
+  .preference__desc > *{
+    color: white;
+  }
 }
 
 @media only screen and (max-width: 780px){
@@ -1772,5 +1815,41 @@ label.error{
   }
   .footer__bottom{
     padding-bottom: 2rem;
+  }
+  .preference__desc{
+    position: relative;
+    padding: 0;
+  }
+  //.preference__slide{
+  //  display: flex;
+  //  flex-direction: column;
+  //}
+  .preference__desc > *:not(a){
+    color:var(--color-black)
+  }
+  .preference__pagination{
+    bottom: unset;
+    top: 5rem;
+    height: max-content;
+    width: max-content;
+    left: 13.5rem;
+  }
+  .preference__title{
+    font-size: 3rem;
+  }
+  .preference__img{
+    height: 48vw;
+    margin-bottom: 3.7rem;
+  }
+  .preference__img:after{
+    display: none;
+  }
+  .preference__pagination .swiper-pagination-bullet{
+    width: 0.8rem ;
+    height: 0.8rem;
+    background-color:#E6E6E6 ;
+  }
+  .preference__pagination .swiper-pagination-bullet-active{
+    background-color:var(--color-dots);
   }
 }

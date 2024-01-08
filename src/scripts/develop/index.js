@@ -14,11 +14,15 @@ const banner = new Swiper('.banner__slider', {
 
 const preference = new Swiper('.preference__slider', {
     slidesPerView: 1,
-    spaceBetween: 0,
+    spaceBetween: 40,
     centeredSlides: false,
     loop: true,
     autoplay: {
         delay: 4000,
+    },
+    pagination: {
+        el: '.preference__pagination',
+        clickable: true,
     },
     navigation: {
         nextEl: ".preference__next",
@@ -136,6 +140,13 @@ function mobChange(){
         let firstItem = $(".header__info-item:first");
         let secondItem = $(".header__info-item:eq(1)");
         firstItem.before(secondItem);
+
+
+        $('.preference__slide').each(function (){
+            let img = $(this).find('.preference__img')
+            let counter = $(this).find('.countdown')
+            counter.after(img)
+        })
     }
 
 }
